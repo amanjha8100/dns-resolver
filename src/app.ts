@@ -37,8 +37,24 @@ import { ParseResponse } from "./parse_response";
     }
 }
 
-const exe = new Execute();
+
+
+//script to take input from user and resolve dns
+const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question('Enter URL: ', (userInput: string) => {
+  const exe = new Execute();
+  exe.execution(userInput);
+  rl.close();
+});
+
+// const exe = new Execute();
 // exe.execution("dns.google.com");
-exe.execution("www.urbanladder.com");
+// exe.execution("www.urbanladder.com");
 // exe.execution("images.google.com");
 // exe.execution("www.google.com");
